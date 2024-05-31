@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 def load_stock_data(ticker):
     data = yf.download(ticker, period="5y")
     data.reset_index(inplace=True)
-    return data.copy()
+    return data
 
 # 모델 학습 함수
 @st.cache_resource
@@ -28,7 +28,7 @@ def train_model(data):
     X = data[features]
     y = data[target]
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42,shuffle=False)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     model = xgb.XGBRegressor(objective='reg:squarederror', n_estimators=1000, learning_rate=0.01, max_depth=5)
     model.fit(X_train, y_train)
