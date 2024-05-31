@@ -62,7 +62,7 @@ def predict_stock_prices(model, ticker):
     return future_data
 
 # Streamlit 애플리케이션
-st.title("주가 예측 애플리케이션")
+st.title("주주주주주주 예측 애플리케이션")
 
 # 주식 티커 입력
 ticker = st.text_input("주식 티커를 입력하세요", "AAPL")
